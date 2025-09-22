@@ -1,0 +1,17 @@
+USE DATABASE ASH_DB;
+USE SCHEMA STOCK_SCHEMA;
+
+CREATE OR REPLACE TABLE ASH_DB.STOCK_SCHEMA.fact_stock_price_daily(
+    SYMBOL        STRING  NOT NULL,
+    "DATE"        DATE    NOT NULL,
+    "OPEN"        FLOAT,
+    "CLOSE"       FLOAT,
+    "MIN"         FLOAT,
+    "MAX"         FLOAT,
+    VOLUME        NUMBER,
+    CONSTRAINT UK_FACT_PRICE UNIQUE (SYMBOL, "DATE")
+);
+
+SELECT *
+FROM ASH_DB.STOCK_SCHEMA.fact_stock_price_daily
+LIMIT 10
